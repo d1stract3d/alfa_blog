@@ -6,23 +6,22 @@
       <br>
       <div class="container">
         <table>
-          <tr>
-            <% @posts.each do |post| %>
-              <th>
+          <% @posts.each do |post| %>
+            <tr>
+              <th><br>
                 <b> <%= post.title %> </b>
               </th>
-              </tr>
-              <tr>
-                <td>
-                  <%= post.body[0..33] %>...
-                </td>
-                <td>
-                  &nbsp; (placeholder)
-                </td>
-
-              </tr>
-            <% end %>
-            </table>
+            </tr>
+            <tr>
+              <td>
+                <%= post.body[0..33] %>...
+              </td>
+              <td>
+                &nbsp; (placeholder) <br>
+              </td>
+          <% end %>
+          </tr>
+        </table>
       </div>
     </div>
     <div class="col-auto">
