@@ -4,6 +4,15 @@
     <div class="col-12"><h3><b>Create Post</b></h3><br></div>
     <div class="col-10">
 
+      <% if @post.errors.any? %>
+        <h6><b>The following errors prevented the post from being submitted:</b></h6>
+        <% @post.errors.full_messages.each do |msg| %>
+            <div class="text-danger"><%= msg %></div>
+        <% end %>
+      <% end %>
+<br>
+
+
       <%= form_with scope: :post, url: posts_path, local: true do |f| %>
 
         <form>

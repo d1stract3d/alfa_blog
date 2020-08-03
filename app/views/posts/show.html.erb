@@ -1,5 +1,10 @@
 <div class="container pt-5">
   <div class="row pt-5"></div>
+  <div class="row justify-content-center">
+   <p class="text-success"> <% flash.each do |name, msg| %>
+      <%= msg %>
+    <% end %> </p>
+  </div>
   <div class="row mx-auto">
     <div class="col-10"><h2><b> <%= @post.title %> </b></h2>
       <br>
