@@ -1,7 +1,7 @@
 <div class="container pt-5">
   <div class="row pt-5"></div>
   <div class="row mx-auto">
-    <div class="col-12"><h3><b>Create Post</b></h3><br></div>
+    <div class="col-12"><h3><b>Edit Post</b></h3><br></div>
     <div class="col-10">
 
       <% if @post.errors.any? %>
@@ -13,7 +13,8 @@
       <br>
 
 
-      <%= form_with scope: :post, url: posts_path, local: true do |f| %>
+      <%= form_with(model: @post, local: true) do |f| %>
+
 
         <b>Title</b><br>
         <%= f.text_field :title %>

@@ -13,6 +13,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit
+    # byebug
+    @post = Post.find(params[:id])
+  end
 
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
@@ -21,6 +25,17 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       render 'new'
+    end
+  end
+
+  def update
+    # byebug
+    @post = Post.find(params[:id])
+    if @post.update(params.require(:post).permit(:title, :body))
+      flash[:notice] = 'Post was updated successfully!'
+      redirect_to @post
+    else
+      render 'edit'
     end
   end
 
