@@ -1,9 +1,9 @@
 <div class="container pt-5">
   <div class="row pt-5"></div>
   <div class="row mx-auto">
-    <div class="col-12"><h3><b>Edit Post</b></h3><br></div>
-    <div class="col-10">
+    <div class="col"><h3><b>Edit Post</b></h3><br> 
 
+    <div class="d-flex justify-content-center">
       <% if @post.errors.any? %>
         <h6><b>The following errors prevented the post from being submitted:</b></h6>
         <% @post.errors.full_messages.each do |msg| %>
@@ -22,15 +22,16 @@
         <b>Body</b><br>
         <%= f.text_area :body %>
         <br><br>
-        <%= f.submit %>
+        <%= f.submit :class=>'btn btn-outline-success' %>
 
       <% end %>
+    </div> <br> <br>
+      <div class="row float-right pt-5 pr-5">
+      <div class="list-group float-right">
+        <a href="/posts" class="text-danger font-weight-bold list-group-item list-group-item-danger">< Back</a>
+      </div> <br> <br> </div>
 
     </div>
-    <div class="col-auto">
-      <div class="list-group">
-        <a href="/posts" class="text-danger font-weight-bold list-group-item list-group-item-danger">< Back</a>
-      </div>
-    </div>
   </div>
+
 </div>

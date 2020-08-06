@@ -1,33 +1,36 @@
 <div class="container pt-5">
   <div class="row pt-5"></div>
   <div class="row mx-auto">
-    <div class="col-10">
-      <h4><b> Posts </b></h4>
-      <br>
-      <div class="container">
-        <table>
+    <div class="col"><h4><b> Posts </b></h4></div>
+    <div class="col"><div class="list-group float-right">
+        <a href="/" class="text-danger font-weight-bold list-group-item list-group-item-danger">< Back</a>
+      </div> </div> </div>
+  <br> <br>
+      <div class="d-flex justify-content-center">
+        <table class="table table-hover">
           <% @posts.each do |post| %>
             <tr>
-              <th><br>
-                <b> <%= post.title %> </b>
+              <th>
+                <b> <%= link_to post.title, post_path(post), :class => 'text-danger' %> </b>
               </th>
             </tr>
             <tr>
               <td>
-                <%= post.body[0..33] %>...
+                <%= post.body[0..55] %>...
               </td>
-              <td>
-                &nbsp; (placeholder) <br>
-              </td>
+              <tr>
+                <td>
+               <%= link_to 'Delete', post_path(post), method: :delete, :class=>'btn btn-outline-danger btn-sm float-right' %>
+
+                  <%= link_to 'Edit', edit_post_path(post), method: :get, :class=>'btn btn-outline-secondary btn-sm float-right mr-3' %>
+
+                </td>
+              </tr>
           <% end %>
           </tr>
         </table>
       </div>
-    </div>
-    <div class="col-auto">
-      <div class="list-group">
-        <a href="/" class="text-danger font-weight-bold list-group-item list-group-item-danger">< Home</a>
-      </div>
+      <br><br><br><br><br>
     </div>
   </div>
 </div>
