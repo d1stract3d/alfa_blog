@@ -7,10 +7,10 @@
       </div> </div> </div>
   <br> <br>
       <div class="d-flex justify-content-center">
-        <table class="table table-hover">
+        <table class="table">
           <% @posts.reverse_each do |post| %>
             <tr>
-              <th>
+              <th class="table-active">
                 <b> <%= link_to post.title, post_path(post), :class => 'text-danger' %> </b>
               </th>
             </tr>
