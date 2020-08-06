@@ -5,7 +5,7 @@
     <div class="col"><div class="list-group float-right">
         <a href="/" class="text-danger font-weight-bold list-group-item list-group-item-danger">< Back</a>
       </div> </div> </div>
-  <br> <br>
+   <br>
       <div class="d-flex justify-content-center">
         <table class="table">
           <% @posts.reverse_each do |post| %>
@@ -16,14 +16,16 @@
             </tr>
             <tr>
               <td>
-                <%= post.body[0..55] %>...
+                <span class="d-inline-block text-truncate" style="max-width: 250px;">
+                <%= post.body[0..55] %>
+                </span>
               </td>
               <tr>
                 <td>
 
-               <%#= link_to 'Delete', post_path(post), method: :delete, :class=>'btn btn-outline-danger btn-sm float-right' %>
+               <%= link_to 'Delete', post_path(post), method: :delete, :class=>'btn btn-outline-danger btn-sm float-right' %>
 
-                  <%#= link_to 'Edit', edit_post_path(post), method: :get, :class=>'btn btn-outline-secondary btn-sm float-right mr-3' %>
+                  <%= link_to 'Edit', edit_post_path(post), method: :get, :class=>'btn btn-outline-secondary btn-sm float-right mr-3' %>
 
                 </td>
               </tr>
@@ -31,6 +33,7 @@
           </tr>
         </table>
       </div>
+  <%= link_to 'New Post', new_post_path(), method: :get, :class=>'btn btn-success' %>
       <br><br><br><br><br>
     </div>
   </div>
