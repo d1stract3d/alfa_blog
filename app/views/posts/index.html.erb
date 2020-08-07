@@ -1,11 +1,18 @@
 <div class="container pt-5">
   <div class="row pt-5"></div>
   <div class="row mx-auto">
-    <div class="col"><h4><b> Posts </b></h4></div>
-    <div class="col"><div class="list-group float-right">
+    <div class="col-sm"><h4><b> Posts </b></h4></div>
+    <div class="col">
+      <div class="list-group float-right pl-2">
         <a href="/" class="text-danger font-weight-bold list-group-item list-group-item-danger">< Back</a>
-      </div> </div> </div>
-   <br>
+      </div>
+      <div class="col">
+      <div class="list-group float-right">
+        <%= link_to 'New Post', new_post_path(), method: :get, :class=>'text-success font-weight-bold list-group-item list-group-item-success' %></div>
+    </div>
+  </div>
+  </div>
+  <br>
       <div class="d-flex justify-content-center">
         <table class="table">
           <% @posts.reverse_each do |post| %>
@@ -30,11 +37,8 @@
                 </td>
               </tr>
           <% end %>
-          </tr>
+
         </table>
       </div>
-  <%= link_to 'New Post', new_post_path(), method: :get, :class=>'btn btn-success' %>
       <br><br><br><br><br>
     </div>
-  </div>
-</div>
