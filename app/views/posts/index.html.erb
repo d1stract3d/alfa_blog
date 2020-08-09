@@ -6,38 +6,34 @@
         <a href="/" class="text-danger font-weight-bold list-group-item list-group-item-danger">< Back</a>
       </div>
       <div class="col">
-      <div class="list-group float-right">
-        <%= link_to 'New Post', new_post_path(), method: :get, :class=>'text-success font-weight-bold list-group-item list-group-item-success' %></div>
+        <div class="list-group float-right">
+          <%= link_to 'New Post', new_post_path(), method: :get, :class => 'text-success font-weight-bold list-group-item list-group-item-success' %></div>
+      </div>
     </div>
   </div>
-  </div>
   <br>
-      <div class="d-flex justify-content-center">
-        <table class="table">
-          <% @posts.reverse_each do |post| %>
-            <tr>
-              <th class="table-active">
-                <b> <%= link_to post.title, post_path(post), :class => 'text-danger' %> </b>
-              </th>
-            </tr>
-            <tr>
-              <td>
+  <div class="d-flex justify-content-center">
+    <table class="table">
+      <% @posts.reverse_each do |post| %>
+        <tr>
+          <th class="table-active">
+            <b> <%= link_to post.title, post_path(post), :class => 'text-danger' %> </b>
+          </th>
+        </tr>
+        <tr>
+          <td>
                 <span class="d-inline-block text-truncate" style="max-width: 250px;">
                 <%= post.body[0..55] %>
                 </span>
-              </td>
-              <tr>
-                <td>
-
-               <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-outline-danger btn-sm float-right' %>
-
-                  <%= link_to 'Edit', edit_post_path(post), method: :get, :class=>'btn btn-outline-secondary btn-sm float-right mr-3' %>
-
-                </td>
-              </tr>
-          <% end %>
-
-        </table>
-      </div>
-      <br><br><br><br><br>
-    </div>
+          </td>
+        <tr>
+          <td>
+            <%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-outline-danger btn-sm float-right' %>
+            <%= link_to 'Edit', edit_post_path(post), method: :get, :class => 'btn btn-outline-secondary btn-sm float-right mr-3' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <br><br><br><br><br>
+</div>
